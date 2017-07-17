@@ -15,7 +15,7 @@ fs.readdir(src,function(err,files){
     // API文档中找到重命名的API，如下
     // fs.rename(oldPath, newPath, callback)       
     // 下面，我们就可以依葫芦画瓢，确定新旧文件名称：
-    var oldPath = src +'/'+filename,newPath = newsrc+'/'+filename.replace(/(\w+)\.(\w+)/gi,index+".$2");
+    var oldPath = src +'/'+filename,newPath = newsrc+'/'+filename.replace(/([\w\d()]+)\.(\w+)/gi,index+".$2");
     // 重命名走起
     fs.rename(oldPath,newPath,function(err){
       if(!err){
